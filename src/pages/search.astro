@@ -1,0 +1,12 @@
+---
+import BlogSearch from "../components/BlogSearch";
+import SearchButton from "../components/SearchButton";
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="My first blog with Astro">
+  <main>
+    <SearchButton client:visible />
+    <BlogSearch client:only="react" />
+  </main>
+</Layout>
