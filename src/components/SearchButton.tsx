@@ -15,7 +15,7 @@ const SearchButton = () => {
     event.preventDefault()
     window.location.href = `/search?q=${value}`
     //console.log(value)
-    console.log(location.href)
+    //console.log(location.href)
   }
   return (
     <form

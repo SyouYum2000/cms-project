@@ -1,17 +1,19 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import { getBlogs } from "../library/microcms";
-const response = await getBlogs({ fields: ["id", "title"] });
-console.log(response);
+import { getBlogs, type Blog } from "../library/microcms";
+const response = await getBlogs({ fields: ["id", "title","reviewImage"] });
 ---
 
 <Layout title="Welcome to Astro.">
   <main class="m-auto p-8">
     <ul>
       {
-        response.contents.map((content: any) => (
+        response.contents.map((content: Blog) => (
           <li>
-            <a href={content.id}>{content.title}</a>
+            <div>
+              <a href={content.id}>{content.title}</a>
+              <img src={content.reviewImage.url}/>
+            </div>
           </li>
         ))
       }

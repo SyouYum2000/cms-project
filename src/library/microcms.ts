@@ -4,7 +4,12 @@ const client = createClient({
     serviceDomain: import.meta.env.MICROCMS_SERVICE_DOMAIN,
     apiKey: import.meta.env.MICROCMS_API_KEY,
   });
-
+  
+  export type pic = {
+    url:string;
+    height:number;
+    width:number;
+  }
   export type Blog = {
     id: string;
     createdAt: string;
@@ -12,7 +17,12 @@ const client = createClient({
     publishedAt: string;
     revisedAt: string;
     title: string;
-    content: string;
+    body?: string;
+    category:string[];
+    console:string[];
+    favorite?:number;
+    reviewImage:pic;
+    detailImage?:pic[];
   };
 
   export type BlogResponse = {
