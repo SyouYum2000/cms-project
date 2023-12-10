@@ -1,7 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import { getBlogs, type Blog } from "../library/microcms";
-const response = await getBlogs({ fields: ["id", "title","reviewImage"] });
+const response = await getBlogs({ fields: ["id", "title", "reviewImage"] });
 ---
 
 <Layout title="Welcome to Astro.">
@@ -9,10 +9,18 @@ const response = await getBlogs({ fields: ["id", "title","reviewImage"] });
     <ul>
       {
         response.contents.map((content: Blog) => (
-          <li>
-            <div>
-              <a href={content.id}>{content.title}</a>
-              <img src={content.reviewImage.url}/>
+          <li class="flex flex-col mb-8 px-9">
+            <div class="flex flex-col gap-3 items-center">
+              <a 
+               href={content.id}
+               class="font-sans"
+              >
+                {content.title}
+              </a>
+              <img 
+               src={content.reviewImage.url} 
+               class="w-40 h-40 rounded-full" 
+              />
             </div>
           </li>
         ))
