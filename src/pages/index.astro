@@ -5,21 +5,18 @@ const response = await getBlogs({ fields: ["id", "title", "reviewImage"] });
 ---
 
 <Layout title="Welcome to Astro.">
-  <main class="m-auto p-8">
-    <ul>
+  <main class="mx-auto max-w-7xl">
+    <ul class="flex flex-col mb-8 px-9 md:grid md:grid-cols-4 md:gap-4">
       {
         response.contents.map((content: Blog) => (
-          <li class="flex flex-col mb-8 px-9">
-            <div class="flex flex-col gap-3 items-center">
-              <a 
-               href={content.id}
-               class="font-sans"
-              >
+          <li>
+            <div class="sm:flex sm:flex-col sm:gap-3 sm:items-center">
+              <a href={content.id} class="font-sans">
                 {content.title}
               </a>
-              <img 
-               src={content.reviewImage.url} 
-               class="w-40 h-40 rounded-full" 
+              <img
+                src={content.reviewImage.url}
+                class="w-40 h-40 rounded-full"
               />
             </div>
           </li>
